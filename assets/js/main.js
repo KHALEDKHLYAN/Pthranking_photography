@@ -6,19 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    const removePreloader = () => {
+    window.addEventListener('load', () => {
       preloader.classList.add('loaded');
       setTimeout(() => {
         preloader.remove();
       }, 1000);
-    };
-
-    // Remove preloader after maximum 10 seconds
-    const preloaderTimeout = setTimeout(removePreloader, 10000);
-
-    window.addEventListener('load', () => {
-      clearTimeout(preloaderTimeout);
-      removePreloader();
     });
   }
 
